@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Aluno</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Bem-vindo, Aluno!</h1>
+        <nav>
+            <ul>
+                <li><a href="teachers-listing.html">Procurar Professores</a></li>
+                <li><a href="my-classes.html">Minhas Aulas</a></li>
+                <li><a href="favorite-teachers.html">Professores Favoritos</a></li>
+                <li><a href="student-schedule.html">Ver o meu Horário</a></li>
+                <li><a href="student-messages.html">Mensagens</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="dashboard-content">
+        <h2>Visão Geral</h2>
+        <section class="quick-links">
+            <h3>Acesso Rápido</h3>
+            <ul>
+                <li><a href="teachers-listing.html">Encontrar um novo professor</a></li>
+                <li><a href="student-schedule.html">Ver o meu horário</a></li>
+                <li><a href="student-messages.html">Mensagens</a></li>
+                <li><a href="my-classes.html">Ver todas as minhas aulas</a></li>
+            </ul>
+        </section>
+
+        <section class="recent-activity">
+            <h3>Atividade Recente</h3>
+            <p>Nenhuma atividade recente.</p>
+        </section>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Horário - Aluno</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Meu Horário de Aulas</h1>
+        <nav>
+            <ul>
+                <li><a href="students-dashboard.html">Meu Dashboard</a></li>
+                <li><a href="teachers-listing.html">Encontrar Professores</a></li>
+                <li><a href="my-classes.html">Minhas Aulas</a></li>
+                <li><a href="favorite-teachers.html">Professores Favoritos</a></li>
+                <li><a href="student-messages.html">Mensagens</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Próximas Aulas Agendadas</h2>
+            <div id="upcomingStudentClasses">
+                <p>Você não tem aulas agendadas para breve.</p>
+                </div>
+        </section>
+
+        <section class="dashboard-section" style="margin-top: 30px;">
+            <h2>Histórico de Aulas</h2>
+            <div id="studentClassHistory">
+                <p>Nenhuma aula concluída recentemente.</p>
+                </div>
+        </section>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: #666;">
+            Esta é uma funcionalidade em desenvolvimento. Em breve, poderá ver o seu horário completo aqui!
+        </p>
+    </main>
+
+
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica para carregar o horário de aulas 
+            console.log("Página 'Meu Horário' do Aluno carregada. Funcionalidade em construção.");
+        });
+    </script>
+</body>
+</html>

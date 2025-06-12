@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Professor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Meu Perfil</h1>
+        <nav>
+            <ul>
+                <li><a href="../html/teachers-dashboard.html">Dashboard</a></li>
+                <li><a href="../html/teacher-classes.html">Minhas Aulas</a></li>
+                <li><a href="../html/teacher-messages.html">Mensagens</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Informações do Perfil</h2>
+            <form id="teacherProfileForm">
+                <div class="input-group">
+                    <label for="teacherName">Nome:</label>
+                    <input type="text" id="teacherName" value="Dr. João Pereira" required>
+                </div>
+                <div class="input-group">
+                    <label for="teacherEmail">Email:</label>
+                    <input type="email" id="teacherEmail" value="joao.pereira@example.com" readonly>
+                </div>
+                <div class="input-group">
+                    <label for="teacherSubjects">Disciplinas (separadas por vírgula):</label>
+                    <input type="text" id="teacherSubjects" value="Matemática, Física, Cálculo">
+                </div>
+                <div class="input-group">
+                    <label for="teacherEducationLevel">Níveis de Ensino (separados por vírgula):</label>
+                    <input type="text" id="teacherEducationLevel" value="Ensino Secundário, Ensino Superior">
+                </div>
+                <div class="input-group">
+                    <label for="teacherModality">Modalidade:</label>
+                    <select id="teacherModality">
+                        <option value="online">Online</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="ambas">Ambas</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="teacherLocation">Localização (se presencial/ambas):</label>
+                    <input type="text" id="teacherLocation" value="Lisboa">
+                </div>
+                <div class="input-group">
+                    <label for="teacherPrice">Preço por Hora (€):</label>
+                    <input type="number" id="teacherPrice" value="30" min="5" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="teacherBio">Biografia:</label>
+                    <textarea id="teacherBio" rows="5">Professor com mais de 15 anos de experiência, especializado em aulas de Matemática e Física para ensino secundário e superior. Metodologia focada na resolução de problemas e compreensão profunda dos conceitos.</textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Guardar Alterações</button>
+                </div>
+            </form>
+        </section>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: #666;">
+            As alterações ao perfil serão guardadas na sua conta. (Requer backend)
+        </p>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const teacherProfileForm = document.getElementById('teacherProfileForm');
+
+
+            // Normalmente, dados que viriam do servidor após o login do professor.
+            const currentTeacherData = {
+                name: 'Dr. João Pereira',
+                email: 'joao.pereira@example.com',
+                subjects: 'Matemática, Física, Cálculo',
+                educationLevel: 'Ensino Secundário, Ensino Superior',
+                modality: 'online', // Pode ser 'online', 'presencial', 'ambas'
+                location: 'Lisboa',
+                price: 30,
+                bio: 'Professor com mais de 15 anos de experiência, especializado em aulas de Matemática e Física para ensino secundário e superior. Metodologia focada na resolução de problemas e compreensão profunda dos conceitos.'
+            };
+
+            // Preencher o formulário com os seus dados (simulação)
+            document.getElementById('teacherName').value = currentTeacherData.name;
+            document.getElementById('teacherEmail').value = currentTeacherData.email;
+            document.getElementById('teacherSubjects').value = currentTeacherData.subjects;
+            document.getElementById('teacherEducationLevel').value = currentTeacherData.educationLevel;
+            document.getElementById('teacherModality').value = currentTeacherData.modality;
+            document.getElementById('teacherLocation').value = currentTeacherData.location;
+            document.getElementById('teacherPrice').value = currentTeacherData.price;
+            document.getElementById('teacherBio').value = currentTeacherData.bio;
+
+
+            if (teacherProfileForm) {
+                teacherProfileForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+
+                    const updatedData = {
+                        name: document.getElementById('teacherName').value,
+                        email: document.getElementById('teacherEmail').value,
+                        subjects: document.getElementById('teacherSubjects').value,
+                        educationLevel: document.getElementById('teacherEducationLevel').value,
+                        modality: document.getElementById('teacherModality').value,
+                        location: document.getElementById('teacherLocation').value,
+                        price: document.getElementById('teacherPrice').value,
+                        bio: document.getElementById('teacherBio').value
+                    };
+
+                    console.log('Dados do perfil a serem guardados (simulação):', updatedData);
+                    alert('As alterações ao perfil foram guardadas (simulação).');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

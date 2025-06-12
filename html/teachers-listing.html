@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Aulas - Encontrar Professores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Encontre o seu Professor Ideal!</h1>
+        <nav>
+            <ul>
+                <li><a href="students-dashboard.html">Meu Dashboard</a></li>
+                <li><a href="my-classes.html">Minhas Aulas</a></li>
+                <li><a href="favorite-teachers.html">Professores Favoritos</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="search-filters">
+            <h2>Filtros de Procura</h2>
+            <form id="searchForm">
+                <div class="input-group">
+                    <label for="subject">Disciplina:</label>
+                    <input type="text" id="subject" placeholder="Ex: Matemática, Inglês">
+                </div>
+                <div class="input-group">
+                    <label for="educationLevel">Nível de Ensino:</label>
+                    <select id="educationLevel">
+                        <option value="">Qualquer Nível</option>
+                        <option value="Ensino Básico">Ensino Básico</option>
+                        <option value="Ensino Secundário">Ensino Secundário</option>
+                        <option value="Ensino Superior">Ensino Superior</option>
+                        <option value="Idiomas">Idiomas</option>
+                        <option value="Música">Música</option>
+                        <option value="Artes">Artes</option>
+                        </select>
+                </div>
+                <div class="input-group">
+                    <label for="modality">Modalidade:</label>
+                    <select id="modality">
+                        <option value="">Ambas</option>
+                        <option value="online">Online</option>
+                        <option value="presencial">Presencial</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="location">Localização (se presencial):</label>
+                    <input type="text" id="location" placeholder="Ex: Lisboa, Porto">
+                </div>
+                <div class="input-group">
+                    <label for="rating">Classificação Mínima:</label>
+                    <select id="rating">
+                        <option value="0">Sem filtro</option>
+                        <option value="4.5">4.5 estrelas ou mais</option>
+                        <option value="4.0">4.0 estrelas ou mais</option>
+                        <option value="3.5">3.5 estrelas ou mais</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="priceRange">Preço Máximo (€/h):</label>
+                    <input type="range" id="priceRange" min="5" max="50" value="50" oninput="document.getElementById('priceValue').innerText = this.value">
+                    <span id="priceValue">50</span>€/h
+                </div>
+                <button type="submit">Procurar</button>
+                <button type="button" id="resetFilters">Limpar Filtros</button>
+            </form>
+        </section>
+
+        <section class="teacher-results">
+            <h2>Professores Sugeridos e Encontrados</h2>
+            <div id="teacherListings">
+                <p>A carregar sugestões de professores...</p>
+            </div>
+        </section>
+        
+    </main>
+</div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/favorites.js"></script>
+    </body>
+</html>

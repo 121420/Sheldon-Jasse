@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurar Professores</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/dashboard.css"> </head>
+<body>
+    <header class="dashboard-header">
+        <h1>Procurar Professores</h1>
+        <nav>
+            <ul>
+                <li><a href="../html/students-dashboard.html">Dashboard</a></li>
+                <li><a href="teachers-listing.html">Home</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="search-filters">
+            <h2>Filtros de Procura</h2>
+            <form id="searchForm">
+                <div class="input-group">
+                    <label for="subject">Disciplina:</label>
+                    <input type="text" id="subject" placeholder="Ex: Matemática, Inglês">
+                </div>
+                <div class="input-group">
+                    <label for="educationLevel">Nível de Ensino:</label>
+                    <select id="educationLevel">
+                        <option value="">Qualquer Nível</option>
+                        <option value="Ensino Básico">Ensino Básico</option>
+                        <option value="Ensino Secundário">Ensino Secundário</option>
+                        <option value="Ensino Superior">Ensino Superior</option>
+                        <option value="Idiomas">Idiomas</option>
+                        </select>
+                </div>
+                <div class="input-group">
+                    <label for="modality">Modalidade:</label>
+                    <select id="modality">
+                        <option value="">Ambas</option>
+                        <option value="online">Online</option>
+                        <option value="presencial">Presencial</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="location">Localização (se presencial):</label>
+                    <input type="text" id="location" placeholder="Ex: Lisboa, Porto">
+                </div>
+                <button type="submit">Procurar</button>
+            </form>
+        </section>
+
+        <section class="teacher-results">
+            <h2>Resultados da Procura</h2>
+            <div id="teacherListings">
+                <p>Use os filtros para encontrar professores.</p>
+            </div>
+        </section>
+    </main>
+    <script src="../js/auth.js"></script>
+    <script src="..js/search.js"></script>
+    <script src="../js/favorites.js"></script>
+</body>
+</html>

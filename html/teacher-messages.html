@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens - Professor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Minhas Mensagens</h1>
+        <nav>
+            <ul>
+                <li><a href="teachers-dashboard.html">Dashboard</a></li>
+                <li><a href="teacher-profile-edit.html">Meu Perfil</a></li>
+                <li><a href="teacher-classes.html">Minhas Aulas</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Caixa de Entrada</h2>
+            <div id="messageList">
+                <p>Nenhuma mensagem nova.</p>
+                </div>
+        </section>
+
+        <section class="dashboard-section" style="margin-top: 30px;">
+            <h2>Enviar Nova Mensagem</h2>
+            <form id="sendMessageForm">
+                <div class="input-group">
+                    <label for="messageRecipient">Para (Email do Aluno):</label>
+                    <input type="email" id="messageRecipient" placeholder="email-do-aluno@example.com">
+                </div>
+                <div class="input-group">
+                    <label for="messageSubject">Assunto:</label>
+                    <input type="text" id="messageSubject" placeholder="Assunto da mensagem">
+                </div>
+                <div class="input-group">
+                    <label for="messageContent">Mensagem:</label>
+                    <textarea id="messageContent" rows="6" placeholder="Escreva a sua mensagem aqui..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Enviar Mensagem</button>
+                </div>
+
+                <div id="messageList">
+                <p id="noMessagesText">Nenhuma mensagem nova.</p>
+                <div class="message-item" style="display: none;" id="simulatedMessage">
+                    <h4>De: Aluno Exemplo (<span id="simulatedSenderEmail">aluno@example.com</span>) - Assunto: <span id="simulatedSubject">Pedido de Informação</span></h4>
+                    <p><span id="simulatedContent">Gostaria de saber mais sobre as suas aulas de [Disciplina] e disponibilidade.</span></p>
+                    <span>Recebida: <span id="simulatedTimestamp">29/05/2025 15:30</span></span>
+                    <button onclick="alert('Funcionalidade de resposta em desenvolvimento.')">Responder</button>
+                </div>
+            </div>
+            </form>
+        </section>
+
+
+        <section class="dashboard-section">
+  <h2>Enviar Mensagem</h2>
+  <form id="messageForm">
+    <label for="receiver">Destinatário (nome de utilizador):</label>
+    <input type="text" id="receiver" name="receiver" required>
+
+    <label for="message">Mensagem:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
+    </main>
+
+
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sendMessageForm = document.getElementById('sendMessageForm');
+
+            if (sendMessageForm) {
+                sendMessageForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+
+                    const recipient = document.getElementById('messageRecipient').value;
+                    const subject = document.getElementById('messageSubject').value;
+                    const content = document.getElementById('messageContent').value;
+
+                    console.log(`Mensagem a ser enviada para: ${recipient}\nAssunto: ${subject}\nConteúdo: ${content}`);
+                    alert('Mensagem enviada (simulação).');
+
+                    // Limpa o formulário
+                    sendMessageForm.reset();
+
+                });
+            }
+            // Lógica para carregar mensagens recebidas 
+            console.log("Página 'Mensagens' do Professor carregada. Funcionalidade em construção.");
+        });
+
+        // Dentro do <script> em teacher-messages.html
+document.addEventListener('DOMContentLoaded', () => {
+    const sendMessageForm = document.getElementById('sendMessageForm');
+    const simulatedMessage = document.getElementById('simulatedMessage');
+    const noMessagesText = document.getElementById('noMessagesText');
+    const simulatedSubject = document.getElementById('simulatedSubject');
+    const simulatedContent = document.getElementById('simulatedContent');
+    const simulatedTimestamp = document.getElementById('simulatedTimestamp');
+
+    // Funções para lidar com o envio de mensagens (já existe no código)
+    if (sendMessageForm) {
+        sendMessageForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const recipient = document.getElementById('messageRecipient').value;
+            const subject = document.getElementById('messageSubject').value;
+            const content = document.getElementById('messageContent').value;
+
+            console.log(`Mensagem a ser enviada para: ${recipient}\nAssunto: ${subject}\nConteúdo: ${content}`);
+            alert('Mensagem enviada (simulação).');
+
+
+            //  preencher e mostrar a mensagem simulada aqui
+            if (recipient.includes('@example.com')) { // Se for para um email exemplo, simula
+                noMessagesText.style.display = 'none';
+                simulatedMessage.style.display = 'block';
+                simulatedSubject.textContent = subject;
+                simulatedContent.textContent = content;
+                simulatedTimestamp.textContent = new Date().toLocaleString('pt-PT');
+            }
+
+
+            sendMessageForm.reset();
+        });
+    }
+
+    // Lógica para carregar mensagens recebidas (futuramente via backend)
+    console.log("Página 'Mensagens' do Professor carregada. Funcionalidade em construção.");
+
+    // Simulação de mensagem recebida (para testes)
+    // displaySimulatedIncomingMessage('aluno@example.com', 'Dúvida sobre Preço', 'Olá Professor, vi o seu perfil e queria saber se o preço é negociável para pacotes de aulas.');
+    window.displaySimulatedIncomingMessage = (senderEmail, subject, content) => {
+        noMessagesText.style.display = 'none';
+        simulatedMessage.style.display = 'block';
+        document.getElementById('simulatedSenderEmail').textContent = senderEmail;
+        simulatedSubject.textContent = subject;
+        simulatedContent.textContent = content;
+        simulatedTimestamp.textContent = new Date().toLocaleString('pt-PT');
+    };
+});
+    </script>
+</body>
+</html>

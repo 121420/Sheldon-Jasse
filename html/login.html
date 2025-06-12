@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Aulas - Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Plataforma de Aulas</h1>
+    </header>
+    <main class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="role">Entrar como:</label>
+                <select id="role" name="role">
+                    <option value="student">Aluno</option>
+                    <option value="teacher">Professor</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+            <button type="submit">Entrar</button>
+            <p id="loginMessage" class="error-message"></p>
+        </form>
+        <p>Não tem conta? <a href="../html/register.html">Registar</a></p>
+    </main>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

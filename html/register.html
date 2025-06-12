@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Aulas - Registo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css"> </head>
+<body>
+    <header>
+        <h1>Registe-se na Plataforma de Aulas!</h1>
+    </header>
+    <main class="login-container"> <h2>Criar Nova Conta</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="fullName">Nome Completo:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="input-group">
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" name="registerEmail" required>
+            </div>
+            <div class="input-group">
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword" name="registerPassword" required>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            <div class="input-group">
+                <label for="registerRole">Quero registar-me como:</label>
+                <select id="registerRole" name="registerRole">
+                    <option value="student">Aluno</option>
+                    <option value="teacher">Professor</option>
+                </select>
+            </div>
+            <button type="submit">Registar</button>
+            <p id="registerMessage" class="error-message"></p>
+        </form>
+        <p>Já tem conta? <a href="login.html">Faça Login</a></p>
+    </main>
+    <script src="../js/register.js"></script>
+    <script src="../js/auth.js"></script> </body>
+</html>

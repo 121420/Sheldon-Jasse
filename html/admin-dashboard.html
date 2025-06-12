@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Usuários Cadastrados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      padding: 40px;
+    }
+    h1 {
+      color: #333;
+    }
+    .user-list {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .user {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .user:last-child {
+      border-bottom: none;
+    }
+    button {
+      background-color: #0171d3;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #016dcb;
+    }
+    .add-button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      margin-right: 10px;
+    }
+    .add-button:hover {
+      background-color: #218838;
+    }
+    .logout-button {
+      padding: 10px 15px;
+      background-color: #dc3545;
+    }
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Usuários cadastrados</h1>
+  <div class="user-list" id="userList">
+
+  </div>
+
+  <div class="button-group">
+    <button class="add-button" id="addUserButton">Adicionar Novo Usuário</button>
+    <button class="logout-button" id="logoutButton">Sair</button>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const list = document.getElementById("userList");
+    const addUserButton = document.getElementById("addUserButton");
+    const logoutButton = document.getElementById("logoutButton");
+
+    // Exibe os usuários ao carregar a página
+    function displayUsers() {
+      list.innerHTML = ''; // Limpa a lista
+      if (users.length === 0) {
+        list.innerHTML = "<p>Nenhum usuário cadastrado.</p>";
+      } else {
+        users.forEach((user, index) => {
+          const div = document.createElement("div");
+          div.className = "user";
+          div.innerHTML = `
+            <div>
+              <strong>Usuário ${index + 1}</strong><br>
+              Email: ${user.email}<br>
+              Senha: ${user.password}
+            </div>
+            <button onclick="removeUser(${index})">Remover</button>
+          `;
+          list.appendChild(div);
+        });
+      }
+    }
+
+    // Adiciona novo usuário
+    addUserButton.addEventListener('click', () => {
+      const email = prompt("Digite o email do novo usuário:");
+      const password = prompt("Digite a senha do novo usuário:");
+
+      if (email && password) {
+        users.push({ email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+        displayUsers();
+      } else {
+        alert("Por favor, forneça um email e senha.");
+      }
+    });
+
+    // Remove usuário
+    function removeUser(index) {
+      if (confirm("Você tem certeza que deseja remover este usuário?")) {
+        users.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(users));
+        displayUsers();
+      }
+    }
+
+    // Função de logout
+    logoutButton.addEventListener('click', () => {
+      
+      
+      // localStorage.clear();
+      window.location.href = "login.html";
+    });
+
+    displayUsers();
+  </script>
+
+</body>
+</html>

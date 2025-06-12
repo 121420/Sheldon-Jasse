@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Professor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Bem-vindo, Professor!</h1>
+        <nav>
+            <ul>
+                <li><a href="teachers-listing.html">Home</a></li>
+                <li><a href="teacher-profile-edit.html">Meu Perfil</a></li>
+                <li><a href="teacher-classes.html">Minhas Aulas</a></li>
+                <li><a href="teacher-messages.html">Mensagens</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="dashboard-content">
+        <h2>Visão Geral</h2>
+        <section class="quick-links">
+            <h3>Acesso Rápido</h3>
+            <ul>
+                <li><a href="teacher-classes.html">Gerir Horário</a></li>
+                <li><a href="teacher-classes.html">Ver Pedidos de Aulas</a></li>
+                <li><a href="teacher-profile-edit.html">Editar Disciplinas e Níveis</a></li>
+            </ul>
+        </section>
+
+        <section class="upcoming-classes">
+            <h3>Próximas Aulas</h3>
+            <p>Nenhuma aula agendada em breve.</p>
+        </section>
+    </main>
+    <script src="../js/auth.js"></script>
+    <script src="../js/teacher.js"></script>
+</body>
+</html>

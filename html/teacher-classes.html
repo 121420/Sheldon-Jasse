@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Aulas - Professor</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Minhas Aulas</h1>
+        <nav>
+            <ul>
+                <li><a href="teachers-dashboard.html">Dashboard</a></li>
+                <li><a href="teacher-profile-edit.html">Meu Perfil</a></li>
+                <li><a href="teacher-messages.html">Mensagens</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Próximas Aulas</h2>
+            <div id="upcomingClasses">
+                <p>Nenhuma aula agendada para breve.</p>
+                </div>
+        </section>
+
+        <section class="dashboard-section" style="margin-top: 30px;">
+            <h2>Pedidos de Aulas Pendentes</h2>
+            <div id="pendingRequests">
+                <p>Nenhum pedido de aula pendente.</p>
+                </div>
+        </section>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: #666;">
+            Esta é uma funcionalidade em desenvolvimento. Em breve, poderá gerir o seu calendário e pedidos de aulas aqui!
+        </p>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica para carregar aulas e pedidos de aulas 
+            console.log("Página 'Minhas Aulas' do Professor carregada. Funcionalidade em construção.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Professores Favoritos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Meus Professores Favoritos</h1>
+        <nav>
+            <ul>
+                <li><a href="../html/students-dashboard.html">Meu Dashboard</a></li>
+                <li><a href="../html/teachers-listing.html">Encontrar Professores</a></li>
+                <li><a href="../html/my-classes.html">Minhas Aulas</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Lista de Favoritos</h2>
+            <div id="favoriteTeachersListings">
+                <p>Nenhum professor adicionado aos favoritos ainda.</p>
+                </div>
+        </section>
+
+
+    </main>
+
+
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/favorites.js" defer></script>
+
+</body>
+</html>

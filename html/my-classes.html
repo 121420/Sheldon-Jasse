@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Aulas</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Minhas Aulas</h1>
+        <nav>
+            <ul>
+                <li><a href="../html/students-dashboard.html">Meu Dashboard</a></li>
+                <li><a href="../html/teachers-listing.html">Encontrar Professores</a></li>
+                <li><a href="../html/favorite-teachers.html">Professores Favoritos</a></li>
+                <li><button onclick="logout()">Sair</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="dashboard-section">
+            <h2>Aulas Agendadas</h2>
+            <div id="scheduledClasses">
+                <p>Nenhuma aula agendada para breve.</p>
+                </div>
+        </section>
+
+        <section class="dashboard-section" style="margin-top: 30px;">
+            <h2>Aulas Concluídas</h2>
+            <div id="completedClasses">
+                <p>Nenhuma aula concluída recentemente.</p>
+                </div>
+        </section>
+
+        <p style="text-align: center; margin-top: 40px; font-style: italic; color: #666;">
+            Esta é uma funcionalidade em desenvolvimento. Em breve, poderá gerir todas as suas aulas aqui!
+        </p>
+    </main>
+
+
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica para carregar aulas agendadas e concluídas
+            console.log("Página 'Minhas Aulas' carregada. Funcionalidade em construção.");
+        });
+    </script>
+</body>
+</html>

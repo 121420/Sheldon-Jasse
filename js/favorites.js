@@ -38,12 +38,12 @@ function toggleFavorite(teacherId) {
     }
 }
 
-// ----- Renderização da lista de favoritos (antes estava no favorites.html) -----
+// ----- Renderização da lista de favoritos -----
 
 document.addEventListener('DOMContentLoaded', () => {
     const favoriteTeachersListings = document.getElementById('favoriteTeachersListings');
 
-    // Simulação de dados de professores (deve ser o mesmo array em search.js)
+    // Simulação de dados de professores 
     const allTeachers = [
         {
             id: 1, name: 'Prof. Ana Oliveira', subjects: ['Matemática', 'Física'], educationLevel: ['Ensino Secundário', 'Ensino Superior'], modality: 'online', location: '', rating: 4.8, price: 25, bio: 'Professora de Matemática e Física com 10 anos de experiência...', photo: '../img/foto20.jpg'

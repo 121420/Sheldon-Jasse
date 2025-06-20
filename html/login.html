@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Aulas - Login</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Aulas - Login</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 5% auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #343a40;
+    }
+    .error-message {
+      color: red;
+      margin-top: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo à Plataforma de Aulas</h1>
-    </header>
-    <main class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="input-group">
-                <label for="role">Entrar como:</label>
-                <select id="role" name="role">
-                    <option value="student">Aluno</option>
-                    <option value="teacher">Professor</option>
-                    <option value="admin">Administrador</option>
-                </select>
-            </div>
-            <button type="submit">Entrar</button>
-            <p id="loginMessage" class="error-message"></p>
-        </form>
-        <p>Não tem conta? <a href="../html/register.html">Registar</a></p>
-    </main>
-    <script src="../js/auth.js"></script>
+
+  <header class="text-center my-4">
+    <h1>Bem-vindo à Plataforma de Aulas</h1>
+  </header>
+
+  <main class="login-container">
+    <h2 class="mb-4">Login</h2>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Entrar como:</label>
+        <select id="role" name="role" class="form-select">
+          <option value="student">Aluno</option>
+          <option value="teacher">Professor</option>
+          <option value="admin">Administrador</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+      <p id="loginMessage" class="error-message text-center mt-2"></p>
+    </form>
+    <p class="text-center mt-3">
+      Não tem conta? <a href="../html/register.html">Registar</a>
+    </p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js"></script>
 </body>
 </html>

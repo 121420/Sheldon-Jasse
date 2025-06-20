@@ -1,40 +1,216 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Professores Favoritos</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meus Professores Favoritos</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <style>
+    /* Modal (não utilizado aqui, mas mantido) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    /* Reset Básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f7f6;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    nav ul li a,
+    nav ul li button {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    nav ul li a:hover,
+    nav ul li button:hover {
+      background-color: #0056b3;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .success-message {
+      color: #28a745;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    /* Cartão de professor */
+    .teacher-card {
+      display: flex;
+      align-items: flex-start;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .teacher-card:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    .teacher-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 4px solid #f0f0f0;
+      background-color: #fff;
+    }
+
+    .teacher-info {
+      flex: 1;
+    }
+
+    .teacher-info h3 {
+      margin-bottom: 5px;
+      font-size: 1.4em;
+    }
+
+    .teacher-info p {
+      margin: 5px 0;
+    }
+
+    .teacher-bio {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .teacher-actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .teacher-actions button {
+      min-width: 130px;
+    }
+  </style>
 </head>
 <body>
-    <header class="dashboard-header">
-        <h1>Meus Professores Favoritos</h1>
-        <nav>
-            <ul>
-                <li><a href="../html/students-dashboard.html">Meu Dashboard</a></li>
-                <li><a href="../html/teachers-listing.html">Encontrar Professores</a></li>
-                <li><a href="../html/my-classes.html">Minhas Aulas</a></li>
-                <li><button onclick="logout()">Sair</button></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="dashboard-header">
+    <h1>Meus Professores Favoritos</h1>
+    <nav>
+      <ul>
+        <li><a href="../html/students-dashboard.html">Meu Dashboard</a></li>
+        <li><a href="../html/teachers-listing.html">Encontrar Professores</a></li>
+        <li><a href="../html/my-classes.html">Minhas Aulas</a></li>
+        <li><button onclick="logout()">Sair</button></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="main-content">
-        <section class="dashboard-section">
-            <h2>Lista de Favoritos</h2>
-            <div id="favoriteTeachersListings">
-                <p>Nenhum professor adicionado aos favoritos ainda.</p>
-                </div>
-        </section>
-
-
-    </main>
+  <main class="main-content">
+    <section class="dashboard-section">
+      <h2>Lista de Favoritos</h2>
+      <div id="favoriteTeachersListings">
+        <p>Nenhum professor adicionado aos favoritos ainda.</p>
+      </div>
+    </section>
+  </main>
 
 
 
     <script src="../js/auth.js"></script>
-    <script src="../js/favorites.js" defer></script>
+    <script src="../js/favorites.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
